@@ -9,15 +9,34 @@ public class StoreList {
 
     public StoreList() {
         storeList = new TreeMap<>();
+
+        Genre fiction = new Genre("Fiction");
+        Genre science = new Genre("Science");
+        Genre history = new Genre("History");
+
+        storeList.put(fiction, new TreeSet<>());
+        storeList.put(science, new TreeSet<>());
+        storeList.put(history, new TreeSet<>());
+
+        try {
+            addBook(fiction, new Book("The Alchemist"));
+            addBook(fiction, new Book("To Kill a Mockingbird"));
+            addBook(science, new Book("A Brief History of Time"));
+            addBook(history, new Book("Sapiens"));
+        } catch (GenreNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void addBook(Genre genre, Book book) {
-        storeList.putIfAbsent(genre, new TreeSet<>());
+    public void addBook(Genre genre, Book book) throws GenreNotFoundException {
+        if (!storeList.containsKey(genre)) {
+            throw new GenreNotFoundException("Genre " + genre.getGenreName() + " does not exist in catalog.");
+        }
         storeList.get(genre).add(book);
         System.out.println(book.getBookName() + " added in " + genre.getGenreName());
     }
 
-    public void removeBook(String genre, String book) {
+    public void removeBook(String genre, String book) throws GenreNotFoundException {
         boolean genreFound = false;
         for (Map.Entry<Genre, TreeSet<Book>> entry : storeList.entrySet()) {
             if (entry.getKey().getGenreName().equals(genre)) {
@@ -44,11 +63,11 @@ public class StoreList {
         }
 
         if (!genreFound) {
-            System.out.println(genre + " does not exist.");
+            throw new GenreNotFoundException("Genre " + genre + " does not exist in catalog.");
         }
     }
 
-    public void displayBooks(String genre) {
+    public void displayBooks(String genre) throws GenreNotFoundException {
         boolean found = false;
         for (Genre genre2 : storeList.keySet()) {
             if (genre2.getGenreName().equals(genre)) {
@@ -62,7 +81,7 @@ public class StoreList {
         }
 
         if (!found) {
-            System.out.println(genre + " does not exist.");
+            throw new GenreNotFoundException("Genre " + genre + " does not exist in catalog.");
         }
     }
 
