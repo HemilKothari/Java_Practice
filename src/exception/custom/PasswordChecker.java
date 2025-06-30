@@ -4,44 +4,46 @@ import java.util.Scanner;
 
 public class PasswordChecker {
 
-    boolean checkPassword(String password) throws PasswordFormatException {
+    void checkPassword(String password) throws PasswordFormatException {
         if (password.length() < 6)
             throw new PasswordFormatException("Min length should be 6.");
 
         boolean hasDigit = false;
+        boolean hasUpperCase = false;
+        boolean hasLowerCase = false;
+        boolean hasSpecial = false;
         for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= '0' && password.charAt(i) <= '9') {
+            if (Character.isDigit(password.charAt(i)))
                 hasDigit = true;
-                break;
-            }
-        }
-        if (!hasDigit) {
-            throw new PasswordFormatException("Password does not contain 1 number.");
-        }
+            if (Character.isLowerCase(password.charAt(i)))
+                hasUpperCase = true;
+            if (Character.isUpperCase(password.charAt(i)))
+                hasLowerCase = true;
+            if (!Character.isLetterOrDigit(password.charAt(i)))
+                hasSpecial = true;
+            if (Character.isWhitespace(password.charAt(i)))
+                throw new PasswordFormatException("Password should not contain whitespace.");
 
-        boolean hasCapital = false;
-        for (int i = 0; i < password.length(); i++) {
-            if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z') {
-                hasCapital = true;
-                break;
-            }
         }
-        if (!hasCapital) {
-            throw new PasswordFormatException("Password does not contain 1 Uppercase Character.");
-        }
+        if (!hasDigit)
+            throw new PasswordFormatException("Password should contain a number.");
+        if (!hasLowerCase)
+            throw new PasswordFormatException("Password should contain a Lowercase character.");
+        if (!hasUpperCase)
+            throw new PasswordFormatException("Password should contain a Uppercase character.");
+        if (!hasSpecial)
+            throw new PasswordFormatException("Password should contain a special character.");
 
-        return true;
     }
 
     public static void main(String[] args) {
         PasswordChecker passwordChecker = new PasswordChecker();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter password: ");
+        System.out.print("Enter password: ");
         String password = scanner.nextLine();
-        boolean isValid;
         try {
-            isValid = passwordChecker.checkPassword(password);
-            System.out.println(isValid);
+            passwordChecker.checkPassword(password);
+            System.out.println(password + " is valid.");
         } catch (PasswordFormatException e) {
             System.out.println(e.getMessage());
         }
