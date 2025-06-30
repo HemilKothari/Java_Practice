@@ -33,7 +33,11 @@ public class Bookstore {
                         Book book = new Book();
                         System.out.print("Enter book name: ");
                         book.setBookName(scanner.nextLine());
-                        storeList.addBook(genre, book);
+                        try {
+                            storeList.addBook(genre, book);
+                        } catch (GenreNotFoundException e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                     break;
 
@@ -42,13 +46,21 @@ public class Bookstore {
                     genreName = scanner.nextLine().toLowerCase();
                     System.out.print("Enter book name: ");
                     bookName = scanner.nextLine().toLowerCase();
-                    storeList.removeBook(genreName, bookName);
+                    try {
+                        storeList.removeBook(genreName, bookName);
+                    } catch (GenreNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 3:
                     System.out.print("Enter genre name: ");
                     genreName = scanner.nextLine().toLowerCase();
-                    storeList.displayBooks(genreName);
+                    try {
+                        storeList.displayBooks(genreName);
+                    } catch (GenreNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 4:
