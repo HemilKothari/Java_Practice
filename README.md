@@ -22,7 +22,6 @@ This repository contains various Java programs, practice exercises, and mini-pro
 - 🔤 **String Manipulation & Control Structures**
 
 ---
-
 ## 🛠️ Tech Stack
 
 - **Language**: Java (JDK 17+ recommended)
@@ -60,8 +59,8 @@ This repository contains various Java programs, practice exercises, and mini-pro
 ## 👨‍💻 Author
 
 **Hemil Kothari**
-🔗 [LinkedIn](https://www.linkedin.com/in/hemil-kothari)
-📧 [hemilkothari35@gmail.com](mailto:hemilkothari35@gmail.com)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/hemil-kothari)
+- 📧 [hemilkothari35@gmail.com](mailto:hemilkothari35@gmail.com)
 
 ---
 
