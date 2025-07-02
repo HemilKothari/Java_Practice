@@ -15,11 +15,18 @@ This repository contains various Java programs, practice exercises, and mini-pro
   - Classes, Objects, Inheritance, Encapsulation, Polymorphism
 - 📚 **Java Collection Framework**
   - List, Set, Map, Sorting with Comparators
-- 📁 **File Handling**
-  - Reading/Writing files, simple encryption (Caesar Cipher)
-- ❗ **Exception Handling**
-  - Try-catch blocks, custom exception classes
 - 🔤 **String Manipulation & Control Structures**
+  - Loops, Conditions, StringBuilder, Regex
+- ❗ **Exception Handling**
+  - Try-catch blocks, multiple exceptions, custom exception classes
+- 📁 **File Handling**
+  - Reading/Writing files, buffered streams, simple encryption (Caesar Cipher)
+- 🛢️ **JDBC (Java Database Connectivity)**
+  - Connecting Java with H2, executing queries, PreparedStatements
+- 🌐 **Servlets**
+  - HttpServlet, GET/POST methods, session handling, request/response objects
+- 🏗️ **Hibernate (ORM Framework)**
+  - Entity mapping, Configuration, Annotations, CRUD with Hibernate
 
 ---
 ## 🛠️ Tech Stack
