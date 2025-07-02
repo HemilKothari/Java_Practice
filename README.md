@@ -29,11 +29,13 @@ This repository contains various Java programs, practice exercises, and mini-pro
   - Entity mapping, Configuration, Annotations, CRUD with Hibernate
 
 ---
-## 🛠️ Tech Stack
+## 🛠️ Development Environment
 
 - **Language**: Java (JDK 17+ recommended)
-- **IDE**: IntelliJ IDEA / VS Code / Eclipse
-- **Build Tool**: No build tool used (raw `.java` files)
+- **IDE**: IntelliJ IDEA / VS Code
+- **Build Tools**:
+  - ✅ **Maven** for structured projects with dependency management (`pom.xml`)
+  - 🟡 **None (Raw `.java` files)** for basic/core Java practice (compiled via terminal or IDE)
 
 ---
 ## 🚀 How to Run
