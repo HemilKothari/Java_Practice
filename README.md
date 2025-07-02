@@ -47,7 +47,7 @@ This repository contains **hands-on Java programs**, **practice exercises**, and
 |-------------|----------------------------------------|
 | **Language**| Java (JDK 17+ recommended)             |
 | **IDE**     | IntelliJ IDEA / VS Code                |
-| **Build**   | ✅ Maven (`pom.xml`) <br> 🟡 None (Raw `.java`) |
+| **Build**   | Maven (`pom.xml`) <br> None (Raw `.java`) |
 
 ---
 
