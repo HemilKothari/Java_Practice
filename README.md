@@ -85,7 +85,7 @@ java HelloWorld
 ## 👨‍💻 Author
 
 **Hemil Kothari**
-- 🔗 [LinkedIn](https://www.linkedin.com/in/hemil-kothari)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/hemilkothari)
 - 📧 [hemilkothari35@gmail.com](mailto:hemilkothari35@gmail.com)
 
 ---
