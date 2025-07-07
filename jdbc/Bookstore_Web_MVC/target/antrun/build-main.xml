@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <copy file="C:\Users\HEMIL\CN_CRTP\Bookstore_Web_MVC\target/Bookstore_Web_MVC.war" todir="C:\Users\HEMIL\Tomcat\apache-tomcat-11.0.8\webapps" overwrite="true" />
+  </target>
+</project>
