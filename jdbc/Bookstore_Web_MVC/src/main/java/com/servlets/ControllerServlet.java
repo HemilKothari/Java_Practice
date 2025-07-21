@@ -24,6 +24,7 @@ public class ControllerServlet extends HttpServlet {
         String operation = req.getParameter("operation");
         int res = -1;
         String msg = "";
+        List<Book> books;
         switch (operation) {
             case "Add Book":
                 res = bookDAO.insert(new Book(0, req.getParameter("bookName"), Float.parseFloat(req.getParameter("bookPrice"))));
@@ -47,7 +48,19 @@ public class ControllerServlet extends HttpServlet {
                 break;
 
             case "View Books":
-                List<Book> books = bookDAO.view();
+                books = bookDAO.view();
+                req.setAttribute("books", books);
+                req.getRequestDispatcher("view.jsp").forward(req, resp);
+                break;
+
+            case "View Book By Id":
+                books = bookDAO.view(Integer.parseInt(req.getParameter("bookId")));
+                req.setAttribute("books", books);
+                req.getRequestDispatcher("view.jsp").forward(req, resp);
+                break;
+
+            case "View Book By Name":
+                books = bookDAO.view(req.getParameter("bookName"));
                 req.setAttribute("books", books);
                 req.getRequestDispatcher("view.jsp").forward(req, resp);
                 break;

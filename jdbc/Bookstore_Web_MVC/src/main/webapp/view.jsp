@@ -5,7 +5,7 @@
 
 <html>
   <body>
-    <h1>View All Books</h1>
+    <h1>View Books</h1>
 
     <%
     List<Book> allBooks = (List<Book>)request.getAttribute("books");

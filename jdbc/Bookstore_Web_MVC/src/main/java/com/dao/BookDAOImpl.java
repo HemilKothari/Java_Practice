@@ -72,31 +72,31 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public Book view(int id) {
-        Book book = null;
+    public List<Book> view(int id) {
+        List<Book> books = new ArrayList<>();
         try {
             String sql = "select * from books where id = ?";
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                book = new Book(resultSet.getInt(1), resultSet.getString(2), resultSet.getFloat(3));
+                books.add(new Book(resultSet.getInt(1), resultSet.getString(2), resultSet.getFloat(3)));
             } else {
                 System.out.println("No book found with id: " + id);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return book;
+        return books;
     }
 
     @Override
     public List<Book> view(String name) {
         List<Book> books = new ArrayList<>();
         try {
-            String sql = "select * from books where name like %?%";
+            String sql = "select * from books where name like ?";
             PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, name);
+            preparedStatement.setString(1, "%" + name + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             boolean found = false;
             while (resultSet.next()) {

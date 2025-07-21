@@ -9,6 +9,6 @@ public interface BookDAO {
     int update(Book book);
     int delete(int id);
     List<Book> view();
-    Book view(int id);
+    List<Book> view(int id);
     List<Book> view(String name);
 }
