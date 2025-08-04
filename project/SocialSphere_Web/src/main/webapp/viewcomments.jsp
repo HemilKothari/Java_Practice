@@ -4,7 +4,12 @@
 <%@ page import="com.dao.CommentDAOImpl"%>
 
 <html>
+<head>
+    <title>View Comments</title>
+    <link rel="stylesheet" type="text/css" href="styles/viewcomments.css">
+</head>
   <body>
+  <div class="comment">
     <h1>Comments</h1>
 
     <form action="home?operation=dashboard" method="post" style="display:inline;">
@@ -42,6 +47,8 @@
 
         }
     %>
+
+    </div>
 
   </body>
 </html>

@@ -4,7 +4,13 @@
 <%@ page import="com.dao.PostDAOImpl"%>
 
 <html>
+<head>
+    <title>View Posts</title>
+    <link rel="stylesheet" type="text/css" href="styles/viewposts.css">
+</head>
   <body>
+
+    <div class="post">
     <h1>Posts</h1>
 
     <form action="home?operation=dashboard" method="post" style="display:inline;">
@@ -49,6 +55,8 @@
     <%
         }
     %>
+
+    </div>
 
   </body>
 </html>

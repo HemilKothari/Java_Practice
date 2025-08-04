@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Post</title>
+    <link rel="stylesheet" href="styles/createpost.css">
 </head>
 <body>
-<h1>Create Post</h1>
-<form action="home" method="post">
-    <label>Enter Post Title</label>
-    <input type="text" name="postTitle" required>
-    <br>
-    <br>
-    <textarea name="postContent" cols="20" rows="4" placeholder="Enter your content here..."></textarea>
-    <br>
-    <br>
-    <input type="submit" value="Create Post" name="operation" />
-</form>
+<div class="container">
+    <h1>Create Post</h1>
+    <form action="home" method="post" class="post-form">
+        <label for="title">Enter Post Title</label>
+        <input type="text" id="title" name="postTitle" required>
+
+        <label for="content">Enter Content</label>
+        <textarea id="content" name="postContent" rows="5" placeholder="Enter your content here..." required></textarea>
+
+        <input type="submit" value="Create Post" name="operation">
+    </form>
+</div>
 </body>
 </html>

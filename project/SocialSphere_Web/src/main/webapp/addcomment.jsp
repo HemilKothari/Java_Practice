@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Create Comment</title>
+    <link rel="stylesheet" type="text/css" href="styles/createcomment.css">
 </head>
 <body>
 <h2>Add Comment</h2>
