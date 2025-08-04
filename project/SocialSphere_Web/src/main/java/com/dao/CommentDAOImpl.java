@@ -48,4 +48,20 @@ public class CommentDAOImpl implements CommentDAO {
 
         return comments;
     }
+
+    @Override
+    public int getLikeCount(int commentId) {
+        int count = 0;
+        try {
+            String sql = "select count(*) from commentlikes where comment_id = ?";
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, commentId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
 }

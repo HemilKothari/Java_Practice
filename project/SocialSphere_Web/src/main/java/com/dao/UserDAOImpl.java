@@ -110,4 +110,36 @@ public class UserDAOImpl implements UserDAO {
         }
         return count;
     }
+
+    @Override
+    public int getPostLikeCount(int userId) {
+        int count = 0;
+        try {
+            String sql = "select count(*) from postlikes where user_id = ?";
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    @Override
+    public int getCommentLikeCount(int userId) {
+        int count = 0;
+        try {
+            String sql = "select count(*) from commentlikes where user_id = ?";
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
 }

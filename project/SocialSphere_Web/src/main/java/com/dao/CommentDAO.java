@@ -9,4 +9,5 @@ import java.util.List;
 public interface CommentDAO {
     int addComment(Comment comment);
     List<CommentUserJoin> viewComments(int postId);
+    int getLikeCount(int commentId);
 }

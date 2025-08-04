@@ -58,6 +58,18 @@ public class ControllerServlet extends HttpServlet {
                 req.getRequestDispatcher("viewcomments").forward(req, resp);
                 break;
 
+            case "AddPostLike":
+                req.setAttribute("postId",Integer.parseInt(req.getParameter("postId")));
+                req.getRequestDispatcher("addpostlike").forward(req, resp);
+                break;
+
+            case "AddCommentLike":
+                req.setAttribute("commentId",Integer.parseInt(req.getParameter("commentId")));
+                req.setAttribute("postId",Integer.parseInt(req.getParameter("postId")));
+                req.getRequestDispatcher("addcommentlike").forward(req, resp);
+                break;
+
+
             default:
                 resp.sendRedirect("http://localhost:8080/SocialSphere_Web/");
         }

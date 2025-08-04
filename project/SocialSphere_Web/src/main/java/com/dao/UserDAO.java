@@ -10,4 +10,6 @@ public interface UserDAO {
     int getUserIdFromName(User user);
     int getPostCount(int userId);
     int getCommentCount(int userId);
+    int getPostLikeCount(int userId);
+    int getCommentLikeCount(int userId);
 }

@@ -47,5 +47,36 @@ public class PostDAOImpl implements PostDAO{
         return posts;
     }
 
+    @Override
+    public int getLikeCount(int postId) {
+        int count = 0;
+        try {
+            String sql = "select count(*) from postlikes where post_id = ?";
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, postId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int getCommentCount(int postId) {
+        int count = 0;
+        try {
+            String sql = "select count(*) from comments where post_id = ?";
+            PreparedStatement preparedStatement = DBUtil.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, postId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                count = resultSet.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
 
 }
