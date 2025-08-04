@@ -10,6 +10,10 @@ if(userName == null) {
 }
 %>
 <html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="styles/dashboard.css">
+</head>
 <body>
 <h2>Welcome <%= userName %></h2>
 <form action="createpost.html" method="post" style="display:inline;">
@@ -31,5 +35,7 @@ int userId = userDAO.getUserIdFromName(new User((String) session.getAttribute("u
 
 <h3>Posts: <%= userDAO.getPostCount(userId) %> </h3>
 <h3>Comment: <%= userDAO.getCommentCount(userId) %> </h3>
+<h3>Posts Liked: <%= userDAO.getPostLikeCount(userId) %> </h3>
+<h3>Comments Liked: <%= userDAO.getCommentLikeCount(userId) %> </h3>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.model.CommentUserJoin" %>
+<%@ page import="com.dao.CommentDAO"%>
+<%@ page import="com.dao.CommentDAOImpl"%>
 
 <html>
   <body>
@@ -19,12 +21,22 @@
     %>
         <p>No comments found.</p>
     <% }
-    else { 
+    else {
+            CommentDAO commentDAO = new CommentDAOImpl();
             for (CommentUserJoin comment : comments) {
+            int commentId = comment.getCommentId();
+            System.out.println("commentId for this comment: " + commentId);
             %>
                 <h3><%= comment.getUserName() %></h3>
                 <p><%= comment.getCommentContent() %></p>
                 <p><%= comment.getCommentTime() %></p>
+                <form action="home" method="post" style="display:inline;">
+                    <input type="hidden" name="commentId" value="<%= commentId %>">
+                    <input type="hidden" name="postId" value="<%= request.getAttribute("postId") %>">
+                    <input type="hidden" name="operation" value="AddCommentLike">
+                    <button type="submit">Like</button>
+                </form>
+                <h5 style="display:inline;"><%= commentDAO.getLikeCount(commentId) %> </h5>
             <%
             }
 
